@@ -1,0 +1,4 @@
+Using Matlab, load commercially available robot models like the Universal
+Robots™ UR10 cobot, Boston Dynamics™ Atlas humanoid, and KINOVA™ Gen 3
+manipulator. Explore how to generate joint configurations and interact with
+the robot models.
