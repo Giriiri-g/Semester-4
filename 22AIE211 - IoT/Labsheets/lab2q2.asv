@@ -1,0 +1,22 @@
+t = 0:0.001:1;
+
+
+% message signal
+ym = 2*sin(deg2rad(90) - pi*t);
+
+% carrier signal
+
+yc = 4*sin(100*pi*t + deg2rad(10));
+
+% Amplitude modulated Signal
+
+yam = 
+
+subplot(3, 1, 1);
+plot(t, ym);
+title("Message Signal");
+
+subplot(3, 1, 2);
+plot(t, yc);
+title("Carrier Signal");
+

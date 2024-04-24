@@ -3,7 +3,7 @@ f = 2;
 T = 1/f;
 t = 0:0.01:6;
 
-%Sinusoidal signal
+%Sinusoidal signallab2
 x1 = sin(2*pi*f*t);
 subplot (4,2,1) ;
 plot (t,x1);
