@@ -1,3 +1,7 @@
+clc;
+close all;
+clear all;
+
 mf = 10;
 fs = 10000;
 fm = 35;
@@ -5,7 +9,6 @@ fc = 500;
 Am = 1;
 Ac = 1;
 t = 0:1/fs:0.1;
-
 
 ym = Am*cos(2*pi*fm*t);
 yc = Ac*cos(2*pi*fc*t);
