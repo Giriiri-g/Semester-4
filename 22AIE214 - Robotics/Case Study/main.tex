@@ -1,0 +1,321 @@
+%% 
+%% Copyright 2007-2020 Elsevier Ltd
+%% 
+%% This file is part of the 'Elsarticle Bundle'.
+%% ---------------------------------------------
+%% 
+%% It may be distributed under the conditions of the LaTeX Project Public
+%% License, either version 1.2 of this license or (at your option) any
+%% later version.  The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.2 or later is part of all distributions of LaTeX
+%% version 1999/12/01 or later.
+%% 
+%% The list of all files belonging to the 'Elsarticle Bundle' is
+%% given in the file `manifest.txt'.
+%% 
+%% Template article for Elsevier's document class `elsarticle'
+%% with harvard style bibliographic references
+
+%\documentclass[preprint,12pt,authoryear]{elsarticle}
+
+%% Use the option review to obtain double line spacing
+%% \documentclass[authoryear,preprint,review,12pt]{elsarticle}
+
+%% Use the options 1p,twocolumn; 3p; 3p,twocolumn; 5p; or 5p,twocolumn
+%% for a journal layout:
+%% \documentclass[final,1p,times,authoryear]{elsarticle}
+%% \documentclass[final,1p,times,twocolumn,authoryear]{elsarticle}
+%% \documentclass[final,3p,times,authoryear]{elsarticle}
+%% \documentclass[final,3p,times,twocolumn,authoryear]{elsarticle}
+%% \documentclass[final,5p,times,authoryear]{elsarticle}
+ \documentclass[final,5p,times,twocolumn,authoryear]{elsarticle}
+
+%% For including figures, graphicx.sty has been loaded in
+%% elsarticle.cls. If you prefer to use the old commands
+%% please give \usepackage{epsfig}
+
+%% The amssymb package provides various useful mathematical symbols
+\usepackage{amssymb}
+\usepackage{lipsum}
+%% The amsthm package provides extended theorem environments
+%% \usepackage{amsthm}
+
+%% The lineno packages adds line numbers. Start line numbering with
+%% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
+%% for the whole article with \linenumbers.
+%% \usepackage{lineno}
+
+%% You might want to define your own abbreviated commands for common used terms, e.g.:
+\newcommand{\kms}{km\,s$^{-1}$}
+\newcommand{\msun}{$M_\odot}
+
+\journal{Astronomy $\&$ Computing}
+
+
+\begin{document}
+
+\begin{frontmatter}
+
+%% Title, authors and addresses
+
+%% use the tnoteref command within \title for footnotes;
+%% use the tnotetext command for theassociated footnote;
+%% use the fnref command within \author or \affiliation for footnotes;
+%% use the fntext command for theassociated footnote;
+%% use the corref command within \author for corresponding author footnotes;
+%% use the cortext command for theassociated footnote;
+%% use the ead command for the email address,
+%% and the form \ead[url] for the home page:
+%% \title{Title\tnoteref{label1}}
+%% \tnotetext[label1]{}
+%% \author{Name\corref{cor1}\fnref{label2}}
+%% \ead{email address}
+%% \ead[url]{home page}
+%% \fntext[label2]{}
+%% \cortext[cor1]{}
+%% \affiliation{organization={},
+%%            addressline={}, 
+%%            city={},
+%%            postcode={}, 
+%%            state={},
+%%            country={}}
+%% \fntext[label3]{}
+
+\title{Real-Time Fall Detection System for Elderly Care in Old Age Homes Using Raspberry Pi and MPU-6050 }
+
+%% use optional labels to link authors explicitly to addresses:
+%% \author[label1,label2]{}
+%% \affiliation[label1]{organization={},
+%%             addressline={},
+%%             city={},
+%%             postcode={},
+%%             state={},
+%%             country={}}
+%%
+%% \affiliation[label2]{organization={},
+%%             addressline={},
+%%             city={},
+%%             postcode={},
+%%             state={},
+%%             country={}}
+
+\author{Anuvind M P (AM.EN.U4AIE22010),  Harishankar Binu Nair (AM.EN.U4AIE22023),  R S Harish Kumar (AM.EN.U4AIE22042),   Girish S (AM.EN.U4AIE22044)}
+\affiliation[first]{organization={Amrita School of Computing},%Department and Organization
+            addressline={Amrita Viswa Vidyapeetham}, 
+            city={Amritapuri}
+            }
+
+\begin{abstract}
+%% Text of abstract
+This paper presents the design and implementation of a fall detection system aimed at enhancing the safety of elderly individuals in residential care settings. The system integrates an MPU-6050 sensor for capturing acceleration and angular velocity data, which are processed in real-time by a Raspberry Pi 4 server. Upon detecting a fall event, the system activates an alert mechanism, including a buzzer for immediate auditory notification. The design emphasizes simplicity and reliability, with a focus on minimizing response times to improve the overall quality of care. Future enhancements will focus on refining algorithms to optimize accuracy and usability, ensuring effective deployment in caregiving environments. 
+\end{abstract}
+
+%%Graphical abstract
+%\begin{graphicalabstract}
+%\includegraphics{grabs}
+%\end{graphicalabstract}
+
+%%Research highlights
+%\begin{highlights}
+%\item Research highlight 1
+%\item Research highlight 2
+%\end{highlights}
+
+\begin{keyword}
+%% keywords here, in the form: keyword \sep keyword, up to a maximum of 6 keywords
+Fall detection  \sep Internet of Things \sep MPU-6050 \sep Raspberry pi
+
+%% PACS codes here, in the form: \PACS code \sep code
+
+%% MSC codes here, in the form: \MSC code \sep code
+%% or \MSC[2008] code \sep code (2000 is the default)
+
+\end{keyword}
+
+
+\end{frontmatter}
+
+%\tableofcontents
+
+%% \linenumbers
+
+%% main text
+
+\section{Introduction}
+\label{introduction}
+
+Falls are a significant cause of injury among the elderly, leading to disabling fractures and complications that can be fatal. Statistics show that most individuals over 75 years old experience at least one fall per year, with 24\% sustaining severe injuries. The risk of falling triples for those with Alzheimer’s disease. Enhancing elderly care in old age homes can be achieved through the use of sensors that monitor vital signs and activities, transmitting this data to caregivers. 
+
+The consequences of a fall range from minor scrapes to serious fractures, and in some cases, they can lead to death. Prolonged time spent on the floor waiting for help further increases the risk of fatality. Therefore, fall detection is a critical area of research. Many existing fall detection systems utilize accelerometers to identify falls based on changes in acceleration magnitude. When the acceleration exceeds a certain threshold, a fall is detected. 
+
+This project aims to contribute to the development of robust fall detection systems tailored for old age homes by collecting relevant parameters, data filtering techniques, and testing approaches from previous studies. Our system employs the MPU6050 Accelerometer and Gyro Chip, with a NodeMCU sending data to a Raspberry Pi 4, which acts as the server. This setup avoids the use of complex and computationally intensive algorithms, focusing instead on real-time response and efficient resource use. 
+
+\section{Fall Risk Factors}
+A person can be more or less prone to fall, depending on a number of risk factors and hence a classiﬁcation based on only age as a parameter is not enough. In fact, medical studies have determined a set of so called risk factors:
+
+\subsection{Intrinsic}
+
+1. Age (over 75)
+
+2. Chronic disease
+
+3. Previous falls
+
+4. Poor balance
+
+5. Low mobility and bone fragility
+
+6. Sight problems
+
+7. Cognitive and dementia problems
+
+8. Parkinson disease
+
+9. Under the influence of drug altering decision making
+
+10. Incorrect lifestyle (inactivity, use of alcohol, obesity)
+
+\subsection{Internal Environment}
+
+1. Need to reach high objects
+
+2. Slipping ﬂoors
+
+3. Stairs
+
+4. Incorrect use of shoes and clothes
+
+
+
+\section{Components}
+
+
+\subsection{Raspberry Pi 4}
+
+The Raspberry Pi 4 acts as the central server in our fall detection system. This single-board computer is equipped with a powerful quad-core ARM Cortex-A72 CPU, running at 1.5GHz. It offers up to 8GB of RAM, providing ample memory for handling multiple tasks simultaneously. The Raspberry Pi 4 includes dual-display support at resolutions up to 4K via micro-HDMI ports, USB 3.0 ports for high-speed peripherals, and Gigabit Ethernet for fast network connectivity. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{pi.png}
+    \caption{Raspberry pi 4}
+    \label{fig:enter-label}
+\end{figure}
+
+For our project, the Raspberry Pi 4 processes the data received from the sensors and executes the fall detection algorithm. It is responsible for real-time decision making and sending alerts to caregivers. The device runs a Linux-based operating system, which offers flexibility and a wide range of software tools for development. The GPIO pins on the Raspberry Pi 4 are used for interfacing with other hardware components, such as the MPU-6050 sensor and the NodeMCU. 
+
+
+
+\subsection{MPU-6050}
+
+The ITG MPU-6050 is an advanced sensor that integrates a MEMS (Micro-Electro-Mechanical Systems) accelerometer and a MEMS gyroscope into a single chip. The accelerometer and gyroscope each contain three axes (X, Y, and Z), allowing the sensor to capture movement and orientation in all three dimensions. Each axis has a 16-bit analog-to-digital converter (ADC), providing high-resolution data output. 
+
+The MPU-6050 uses the I2C (Inter-Integrated Circuit) protocol for communication, which is a multi-master, multi-slave, single-ended, serial computer bus. This protocol is advantageous due to its simplicity, requiring only two wires: SCL (clock) and SDA (data). These lines are connected to the corresponding pins on the Raspberry Pi 4. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.75\linewidth]{MPU6050-Module.jpg}
+    \caption{MPU-6050 Module}
+    \label{fig:enter-label}
+\end{figure}
+
+\subsection{NodeMCU}
+
+The NodeMCU is an open-source IoT platform based on the ESP8266 Wi-Fi module. It provides a simple and cost-effective way to add wireless connectivity to our fall detection system. The NodeMCU is programmed using the Arduino IDE, which makes it easy to develop and upload code. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.75\linewidth]{image1.png}
+    \caption{Circuit Diagram}
+    \label{fig:enter-label}
+\end{figure}
+
+In our setup, the NodeMCU collects data from the MPU-6050 sensor and transmits it wirelessly to the Raspberry Pi 4. This wireless communication reduces the need for extensive wiring and allows for greater flexibility in sensor placement. The ESP8266 module on the NodeMCU supports the IEEE 802.11 b/g/n Wi-Fi standards, ensuring reliable and fast data transmission. 
+
+\subsection{Buzzer}
+
+The buzzer is an audio signaling device used in our fall detection system to provide immediate auditory alerts in the event of a fall. It serves as an additional layer of notification, ensuring that nearby caregivers or residents are instantly aware of an incident. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.75\linewidth]{Passive-Buzzer.png}
+    \caption{Raspberry pi and buzzer circuit}
+    \label{fig:enter-label}
+\end{figure}
+
+The buzzer is connected to the Raspberry Pi 4 through one of its GPIO pins. When a fall is detected, the Raspberry Pi 4 sends a signal to the buzzer to produce a loud sound, alerting everyone in the vicinity. 
+
+\section{Fall Detection Algorithm}
+
+The fall detection algorithm calculates the overall acceleration and angular velocity to identify potential falls.
+First, the total acceleration vector (\textit{Acc}) is computed using the accelerometer data from the MPU-6050:
+
+{\begin{equation}
+    Acc=\sqrt{(Ax)^2+(Ay)^2+(Az)^2 }
+\end{equation}}
+
+where Ax, Ay and Az represent the accelerations in the x, y, and z axes, respectively.
+Similarly, the angular velocity (w) is derived from the gyroscope data:
+
+{
+\begin{equation}
+    w = \sqrt{(wx)^2+(wy)^2+(wz)^2 }
+    \end{equation}
+}
+
+where wx, wy, and wz denote the angular velocities in the x, y, and z axes, respectively. 
+
+Thresholds are then established to determine potential falls. The Lower Fall Threshold (LFT) is set to detect significant drops in acceleration, suggesting the initiation of a fall. The Upper Fall Threshold (UFT) is defined to identify spikes in acceleration or angular velocity, indicating the impact phase of a fall. These thresholds are derived as follows: 
+\vspace{\baselineskip}
+
+ \textit{Lower Fall Threshold (LFT)}: The negative peaks for the resultant acceleration during various activities are referred to as the signal lower peak values (LPVs). The LFT is set at the level of the smallest magnitude lower fall peak (LFP) recorded during these activities. 
+
+\vspace{\baselineskip}
+ \textit{Upper Fall Threshold (UFT)}: The positive peaks for the resultant acceleration and angular velocity during various activities are referred to as the signal upper peak values (UPVs). The UFT is set at the level of the smallest magnitude upper peak value (UPV) recorded, corresponding to the peak impact force experienced during a fall. 
+
+\vspace{\baselineskip}
+ The system continuously monitors the acceleration and angular velocity data, comparing these values to the predetermined thresholds. If the acceleration drops below the LFT, it implies a potential fall has begun. If the acceleration or angular velocity exceeds the UFT, it signals the impact of the fall. A fall is confirmed when both conditions (LFT and UFT) are met within a short time window, ensuring that the detected event is indeed a fall rather than a false positive from other activities like sitting down quickly. 
+\section{Methodology}
+
+In our fall detection system, we have designed and implemented a comprehensive setup that utilizes advanced sensor technology and robust data processing capabilities. Here’s a detailed explanation of each component and its operational configuration: 
+
+\subsection{Wearable Sensor Setup}
+
+The core of our system involves integrating the MPU-6050 sensor and the NodeMCU on a breadboard. This setup forms a wearable unit that elderly individuals can comfortably wear, typically positioned around the waist or chest area. The MPU-6050 sensor, equipped with both accelerometer and gyroscope capabilities, captures precise movements in three axes (x, y, and z). This data is crucial for detecting both sudden changes in acceleration and orientation, indicative of a potential fall event. 
+
+The NodeMCU, acting as a transmitter, wirelessly sends the sensor data to the central server for real-time processing and analysis. This wireless communication, facilitated by the NodeMCU’s Wi-Fi capabilities, ensures flexibility in sensor placement and eliminates the need for cumbersome wiring, enhancing user comfort and mobility. 
+
+\subsection{Central Server Configuration}
+
+A Raspberry Pi 4 serves as the central server and is set up in the monitoring room. Upon receiving data from the NodeMCU, the Raspberry Pi 4 executes the fall detection algorithm in real time. The algorithm analyzes the incoming acceleration and gyroscope data to determine if a fall has occurred. Specifically, it compares the measured acceleration values against predefined thresholds for detecting significant drops or spikes that indicate a fall event. 
+
+\subsection{Alert Mechanism}
+
+The system incorporates an effective alert mechanism to ensure timely response in case of a fall: 
+\vspace{\baselineskip}
+
+\textit{Buzzer Activation}: Upon detecting a fall, the Raspberry Pi 4 triggers a buzzer connected to its GPIO pins. The audible alarm from the buzzer provides immediate auditory notification within the vicinity, alerting nearby caregivers or residents to the potential emergency. 
+\vspace{\baselineskip}
+
+\textit{Server Notification}: Simultaneously, the Raspberry Pi 4 sends a message to the central server. This message includes crucial information such as the patient ID and the exact time when the fall occurred. By transmitting this data to the server, remote caregivers and monitoring personnel are promptly informed of the incident, enabling them to take swift and appropriate action as required. 
+
+\section{Conclusion}
+
+The development and implementation of our fall detection system represent a significant step forward in enhancing the safety and well-being of elderly individuals in residential care settings. By integrating advanced sensor technology and real-time data processing capabilities, our system offers proactive monitoring and rapid response mechanisms to detect and respond to fall events promptly. 
+
+Our system effectively utilizes the MPU-6050 sensor to capture acceleration and angular velocity data, enabling reliable detection of falls based on predefined thresholds. This capability ensures that genuine fall events are promptly identified, minimizing the risk of delayed assistance. Upon detecting a fall, the system activates an alert mechanism. A buzzer provides immediate auditory notification within the vicinity, alerting nearby caregivers or residents. 
+
+Our fall detection system's design and theoretical framework show promise in addressing the distinct challenges of elderly care environments. Enhancing algorithm accuracy and minimizing false positives are key priorities moving forward. Ensuring usability and acceptance among caregivers and elderly residents is critical to maximizing the system's effectiveness. 
+
+In conclusion, our fall detection system represents a proactive approach to improving elderly care practices, aiming to enhance safety and quality of life for elderly individuals in residential care settings. 
+
+
+
+
+
+
+\end{document}
+
+\endinput
+%%
+%% End of file `elsarticle-template-harv.tex'.
